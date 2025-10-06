@@ -2,18 +2,18 @@ package main
 
 import "fmt"
 
-// Node представляет узел связного списка
+// Node represents a node of a linked list
 type Node struct {
 	Value int
 	Next  *Node
 }
 
-// LinkedList представляет связный список
+// LinkedList represents a linked list
 type LinkedList struct {
 	Head *Node
 }
 
-// Add добавляет новый узел в конец списка
+// Add adds a new node to the end of the list
 func (ll *LinkedList) Add(value int) {
 	newNode := &Node{Value: value}
 	if ll.Head == nil {
@@ -27,7 +27,7 @@ func (ll *LinkedList) Add(value int) {
 	current.Next = newNode
 }
 
-// Print выводит все элементы списка
+// Print outputs all elements of the list
 func (ll *LinkedList) Print() {
 	current := ll.Head
 	for current != nil {
@@ -42,5 +42,5 @@ func main() {
 	ll.Add(1)
 	ll.Add(2)
 	ll.Add(3)
-	ll.Print() // Вывод: 1 2 3
+	ll.Print() // Output: 1 2 3
 }

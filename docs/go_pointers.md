@@ -9,9 +9,9 @@
 **Пример:**
 ```go
 a := 10
-p := &a      // p — указатель на a
+p := &a      // p is a pointer to a
 fmt.Println(*p) // 10
-*p = 20      // меняем значение по адресу p
+*p = 20      // change the value at the address p
 fmt.Println(a) // 20
 ```
 
@@ -23,16 +23,16 @@ fmt.Println(a) // 20
 **Пример:**
 ```go
 func setToNil(p **int) {
-    *p = nil // меняем сам указатель, на который указывает p
+    *p = nil // change the pointer itself, to which p points
 }
 
 func main() {
     a := 10
     ptr := &a
-    fmt.Println(ptr) // адрес a
+    fmt.Println(ptr) // address of a
 
     setToNil(&ptr)
-    fmt.Println(ptr) // теперь ptr == nil
+    fmt.Println(ptr) // now ptr == nil
 }
 ```
 

@@ -1,26 +1,26 @@
 package main
 
 import (
-	"fmt"  // Импортируем пакет для форматированного ввода-вывода
-	"sync" // Импортируем пакет для синхронизации горутин
+	"fmt"  // Import package for formatted I/O
+	"sync" // Import package for goroutine synchronization
 )
 
-var wg sync.WaitGroup // Создаем переменную WaitGroup для ожидания завершения горутин
+var wg sync.WaitGroup // Create WaitGroup variable to wait for goroutines
 
-// Функция MyFunc принимает канал для получения строковых данных
+// MyFunc function receives a channel for string data
 func MyFunc(data chan string) {
-	defer wg.Done() // Уменьшаем счетчик WaitGroup при завершении функции
-	fmt.Println("Waiting for data...") // Сообщение о том, что функция ожидает данные
-	text := <-data // Получаем данные из канала
-	fmt.Println(text) // Печатаем полученные данные
+	defer wg.Done() // Decrease WaitGroup counter when function completes
+	fmt.Println("Waiting for data...") // Message that function is waiting for data
+	text := <-data // Receive data from channel
+	fmt.Println(text) // Print received data
 }
 
 func main() {
-	dataChan := make(chan string) // Создаем канал для передачи строк
-	fmt.Println("Run MyFunc goroutine") // Сообщение о запуске горутины
-	wg.Add(1) // Увеличиваем счетчик WaitGroup на 1
-	go MyFunc(dataChan) // Запускаем MyFunc как горутину
-	dataChan <- "hehey" // Отправляем строку "hehey" в канал
-	wg.Wait() // Ожидаем завершения всех горутин
+	dataChan := make(chan string) // Create channel for string transmission
+	fmt.Println("Run MyFunc goroutine") // Message about starting goroutine
+	wg.Add(1) // Increase WaitGroup counter by 1
+	go MyFunc(dataChan) // Start MyFunc as a goroutine
+	dataChan <- "hehey" // Send string "hehey" to channel
+	wg.Wait() // Wait for all goroutines to finish
 }
 
