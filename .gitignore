@@ -40,3 +40,7 @@ dist/
 build/
 bin/
 
+# Note: Go binaries often trigger false positives in antivirus software
+# This is a known issue with statically-linked Go programs
+# Safe to add bin/ to antivirus exclusions for development
+

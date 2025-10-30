@@ -57,6 +57,8 @@ go run examples/linkedlist_example.go
 go run examples/concurrency_example.go
 ```
 
+> **Note:** If your antivirus flags the compiled `demo.exe`, this is a **false positive**. See [Antivirus False Positives](docs/false_positive_antivirus.md) for explanation. Use `go run` instead of compiled binary for development.
+
 ### Running Tests
 
 ```bash
@@ -188,6 +190,7 @@ go build -ldflags="-s -w" -o bin/demo cmd/demo/main.go
 
 - [Best Practices](docs/best_practices.md) - **Comprehensive guide to all applied Go best practices**
 - [Concurrency Patterns](docs/concurrency_patterns.md) - **Detailed explanation of all concurrency patterns**
+- [Antivirus False Positives](docs/false_positive_antivirus.md) - **Why antivirus may flag Go binaries (safe!)**
 - [Go Pointers](docs/go_pointers.md) - Understanding pointers in Go
 - [Go Types](docs/go_types.md) - Type system overview
 
